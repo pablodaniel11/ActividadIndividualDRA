@@ -1,0 +1,15 @@
+{
+"idtemporada": 1,
+ "temporada": "2017"
+}
+
+{
+"idtemporada": 2,
+ "temporada": "2018"
+}
+
+{
+"idtemporada": 3,
+ "temporada": "2019"
+}
+

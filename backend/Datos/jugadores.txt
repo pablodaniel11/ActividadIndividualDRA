@@ -1,0 +1,153 @@
+//TEMPORADA 2019
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/202695.png',
+ 'temporada': "2019",
+ 'nombreJugador': 'Kawhi Leonard',
+ 'equipo': 'TOR',
+ 'true_shooting_p': 0.606,
+ 'effective_fg_p': 0.546,
+ 'total_shooting_p': 172.1,
+ 'orb_p': 4.2,
+ 'drb_p': 18.6,
+ 'trb_p': 11.6,
+ 'ast_p': 8.4,
+ 'tov_p': 2.5,
+ 'stl_p': 1.0,
+ 'blk_p': 30.5,
+ 'usg_p': 0.6,
+ 'ppr': 1.4, 
+ 'pps': 120.1,
+ 'ortg': 106.8,
+ 'drtg': 13.3,
+ 'ediff': 1102.8,
+ 'fic': 26.3
+}
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1626157.png',
+ 'temporada': "2019",
+ 'nombreJugador': 'Karl-Anthony Towns',
+ 'equipo': 'MIN',
+ 'true_shooting_p': 0.622,
+ 'effective_fg_p': 0.572,
+ 'total_shooting_p': 175.4,
+ 'orb_p': 11.0,
+ 'drb_p': 29.2, 
+ 'trb_p': 20.0,
+ 'ast_p': 13.7,
+ 'tov_p': 1.3,
+ 'stl_p': 4.2,
+ 'blk_p': 28.9, 
+ 'usg_p': -2.6,
+ 'ppr': 1.4,
+ 'pps': 118.5,
+ 'ortg': 108.7,
+ 'drtg': 9.8,
+ 'ediff': 1572.0,
+ 'fic': 26.6
+}
+
+
+//TEMPORADA 2018
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/202695.png',
+ 'temporada': "2018",
+ 'nombreJugador': 'Kawhi Leonard',
+ 'equipo': 'TOR',
+ 'true_shooting_p': 0.606,
+ 'effective_fg_p': 0.546,
+ 'total_shooting_p': 172.1,
+ 'orb_p': 4.2,
+ 'drb_p': 18.6,
+ 'trb_p': 11.6,
+ 'ast_p': 8.4,
+ 'tov_p': 2.5,
+ 'stl_p': 1.0,
+ 'blk_p': 30.5,
+ 'usg_p': 0.6,
+ 'ppr': 1.4, 
+ 'pps': 120.1,
+ 'ortg': 106.8,
+ 'drtg': 13.3,
+ 'ediff': 1102.8,
+ 'fic': 26.3
+}
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1626157.png',
+ 'temporada': "2018",
+ 'nombreJugador': 'Karl-Anthony Towns',
+ 'equipo': 'MIN',
+ 'true_shooting_p': 0.622,
+ 'effective_fg_p': 0.572,
+ 'total_shooting_p': 175.4,
+ 'orb_p': 11.0,
+ 'drb_p': 29.2, 
+ 'trb_p': 20.0,
+ 'ast_p': 13.7,
+ 'tov_p': 1.3,
+ 'stl_p': 4.2,
+ 'blk_p': 28.9, 
+ 'usg_p': -2.6,
+ 'ppr': 1.4,
+ 'pps': 118.5,
+ 'ortg': 108.7,
+ 'drtg': 9.8,
+ 'ediff': 1572.0,
+ 'fic': 26.6
+}
+
+
+
+//TEMPORADA 2017
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/202695.png',
+ 'temporada': "2017",
+ 'nombreJugador': 'Kawhi Leonard',
+ 'equipo': 'TOR',
+ 'true_shooting_p': 0.606,
+ 'effective_fg_p': 0.546,
+ 'total_shooting_p': 172.1,
+ 'orb_p': 4.2,
+ 'drb_p': 18.6,
+ 'trb_p': 11.6,
+ 'ast_p': 8.4,
+ 'tov_p': 2.5,
+ 'stl_p': 1.0,
+ 'blk_p': 30.5,
+ 'usg_p': 0.6,
+ 'ppr': 1.4, 
+ 'pps': 120.1,
+ 'ortg': 106.8,
+ 'drtg': 13.3,
+ 'ediff': 1102.8,
+ 'fic': 26.3
+}
+
+{
+'imagenjugador': 'ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1626157.png',
+ 'temporada': "2017",
+ 'nombreJugador': 'Karl-Anthony Towns',
+ 'equipo': 'MIN',
+ 'true_shooting_p': 0.622,
+ 'effective_fg_p': 0.572,
+ 'total_shooting_p': 175.4,
+ 'orb_p': 11.0,
+ 'drb_p': 29.2, 
+ 'trb_p': 20.0,
+ 'ast_p': 13.7,
+ 'tov_p': 1.3,
+ 'stl_p': 4.2,
+ 'blk_p': 28.9, 
+ 'usg_p': -2.6,
+ 'ppr': 1.4,
+ 'pps': 118.5,
+ 'ortg': 108.7,
+ 'drtg': 9.8,
+ 'ediff': 1572.0,
+ 'fic': 26.6
+}
+
