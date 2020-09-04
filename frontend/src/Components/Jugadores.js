@@ -3,9 +3,10 @@ import Jugador from './jugador';
 
 class Jugadores extends Component {
 
-    constructor() {
-        super();
-        this.state = { jugadores: [] };
+    constructor(props) {
+        super(props);
+        this.temporadaActual = this.props.temporadaActual;
+        this.state = { jugadores: []};
     }
 
     async componentDidMount() {
@@ -16,11 +17,11 @@ class Jugadores extends Component {
     async obtenerJugadores() {
 
         try {
-            const url = "http://localhost:8082/api/jugadors";
+            const url = "http://localhost:8082/api/playersBySession?temporada=" + this.temporadaActual;
             const response = await fetch(url);
             const json = await response.json();
-            console.log('recuperados ' + json._embedded.jugadors.length + ' jugadores')
-            this.setState({ jugadores: json._embedded.jugadors });
+            console.log(JSON.stringify(json, null, 2) )
+            this.setState({ jugadores: json });
         } catch (error) {
             console.error(error);
         }

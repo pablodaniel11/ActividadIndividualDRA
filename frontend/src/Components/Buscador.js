@@ -10,20 +10,25 @@ class Buscador extends Component {
     obtenerDatos = (e) => {
         e.preventDefault();
         //sacamos del input y lo pasamos al principal
-        this.props.datosBusqueda(this.busquedaref.current.value);
+        //this.props.datosBusqueda(this.busquedaref.current.value);
     }
     render() {
         return (
-            <form onSubmit={this.obtenerDatos}>
-                <div className="row">
-                    <div className="form-group col-md-8">
-                        <input ref={this.busquedaref} type="text" className="form-control form-control-lg" placeholder={this.props.mensaje} />
-                    </div>
-                    <div className="form-group col-md-4">
-                        <input type="submit" className="btn btn-lg btn-danger btn-block" />
-                    </div>
-                </div>
+            <form onSubmit={this.obtenerDatos} className="form-inline my-2 my-lg-0">
+                <input ref={this.busquedaref} type="text" className="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" />
+                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
+
+            // <form onSubmit={this.obtenerDatos}>
+            //     <div className="row">
+            //         <div className="form-group col-md-8">
+            //             <input ref={this.busquedaref} type="text" className="form-control form-control-lg" placeholder={this.props.mensaje} />
+            //         </div>
+            //         <div className="form-group col-md-4">
+            //             <input type="submit" className="btn btn-lg btn-danger btn-block" />
+            //         </div>
+            //     </div>
+            // </form>
         );
     }
     // }

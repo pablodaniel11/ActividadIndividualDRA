@@ -38,14 +38,15 @@ class Temporadas extends Component {
         return (
             <React.Fragment>
                 {
+
                     this.state.temporadas
-                    .sort((a, b) => parseInt(a.temporada, 10) - parseInt(b.temporada, 10))
-                    .map(tempo => (
-                        <Temporada
-                            datos={tempo}
-                            setTemporadaActual={this.props.setTemporadaActual}
-                            key={tempo.temporada} />
-                    ))
+                        .sort((a, b) => parseInt(a.temporada, 10) - parseInt(b.temporada, 10))
+                        .map(tempo => (
+                            <Temporada
+                                datos={tempo}
+                                setTemporadaActual={this.props.setTemporadaActual}
+                                key={tempo.temporada} />
+                        ))
                 }
             </React.Fragment>
         );
@@ -56,7 +57,7 @@ class Temporadas extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.mostrarTemporadas()}
+                    {this.mostrarTemporadas()}
             </React.Fragment>);
     }
 }

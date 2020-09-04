@@ -33,16 +33,17 @@ class App extends React.Component {
     }).init();
   }
 
+
   datosBusqueda = (busqueda) => {
     this.setState({ busquedaActual: busqueda })
   }
 
 
   SpaFaker = () => {
-    if (this.state.detallesjugadorActual.length !== 0) {
+    if (this.isDetalleJugadorCurrent()) {
       return <JugadorDetalle detallesJugador={this.state.detallesjugadorActual} />
-    } else if (!!this.state.temporadaActual) {
-      return <Jugadores setJugadorActual={this.setJugadorActual} />;
+    } else if (this.isTemporadasActualCurrent()) {
+      return <Jugadores setJugadorActual={this.setJugadorActual} temporadaActual={this.state.temporadaActual} />;
     }
     else {
       return (<Temporadas setTemporadaActual={this.setTemporadaActual} />);
@@ -58,39 +59,79 @@ class App extends React.Component {
   }
 
   seccionActual = () => {
-    if (this.state.detallesjugadorActual.length !== 0) {
+
+    if (this.isDetalleJugadorCurrent()) {
       return <h1>Detalle Jugador</h1>
-    } else if (!!this.state.temporadaActual) {
-      return <h1>Jugadores</h1>
+    } else if (this.isTemporadasActualCurrent()) {
+      return <h1>Temporada {this.state.temporadaActual} </h1>
     }
     else {
       return <h1>Temporadas</h1>
     }
   }
+  isTemporadasActualCurrent = () => {
+    return (!!this.state.temporadaActual);
+  }
+  isDetalleJugadorCurrent = () => {
+    return (this.state.detallesjugadorActual.length !== 0);
+  }
+
+  isTemporadasCurrent = () => {
+    if (this.isTemporadasActualCurrent() === false && this.isDetalleJugadorCurrent() === false)
+      return true;
+    else
+      return false;
+  }
+
+  clickEnlaceTemporadas = (e) => {
+    e.preventDefault();
+    this.setState({ temporadaActual: '', detallesjugadorActual: [] });
+  }
+
+  clickEnlaceTemporadaActual = (e) => {
+    e.preventDefault();
+    this.setState({ detallesjugadorActual: [] });
+  }
+
+
 
   render() {
+
+    let detalleJugadorBreadCrum;
+    let temporadaActualBreadCrum;
+
+    if (this.isDetalleJugadorCurrent()) {
+      detalleJugadorBreadCrum = <li className="breadcrumb-item active" aria-current="page">Jugadores</li>
+    }
+    if (this.isTemporadasActualCurrent()) {
+      temporadaActualBreadCrum = <li  className={ (this.isTemporadasActualCurrent() && !this.isDetalleJugadorCurrent() ? ' breadcrumb-item active' : 'breadcrumb-item ') } > <a  className={ (this.isTemporadasActualCurrent() && !this.isDetalleJugadorCurrent() ? ' breadcrumb-item active' : 'breadcrumb-item ') } href="/"   aria-current={!this.isDetalleJugadorCurrent()? 'page':''} onClick={this.clickEnlaceTemporadaActual}>Jugadores temporada {this.state.temporadaActual}</a></li>
+    }
+
     return (
       <div className="App" >
 
         <Cabecera />
 
         <div className="container imagenFondo">
-
-          {/* <div className="jumbotron">
-          <p className="lead text-center titulo">Estadisticas Baloncesto!</p>
-          <p className=" text-center">Hola, esto es Estadisticas Baloncesto, una web donde visualizar las estadisticas de los mejores jugadores de la NBA desde 2017 hasta ahora</p>
-          <Buscador
-            mensaje="Busca las temporadas. Ejemplo 2018"
-            datosBusqueda={this.datosBusqueda}
-          />
-        </div> */}
-
-          <div className="text-center mt-5">
-            {this.seccionActual()}
+          <div className="jumbotron">
+            <p className="lead text-center titulo">Estadísticas Baloncesto</p>
+            <p className=" text-center">Hola, esto es Estadísticas Baloncesto, una web donde visualizar las estadísticas de los mejores jugadores de la NBA desde 2017 hasta ahora</p>
           </div>
-          <div className="cold-12 p-5 row " >
+
+          <div className="col-12 pt-5 sticky-top">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className={ this.isTemporadasCurrent() ? 'breadcrumb-item active' : ''+"breadcrumb-item"} > <a href="/" className={ (this.isTemporadasCurrent()  ? ' breadcrumb-item active' : 'breadcrumb-item ') } href="/"   aria-current={this.isTemporadasCurrent()? 'page':''} onClick={this.clickEnlaceTemporadas}>Temporadas   {this.isTemporadasCurrent()}</a></li>
+                {temporadaActualBreadCrum}
+                {detalleJugadorBreadCrum}
+              </ol>
+            </nav>
+          </div>
+
+          <div className="col-12 p-5 row " >
             {this.SpaFaker()}
           </div>
+
         </div>
       </div>
     );

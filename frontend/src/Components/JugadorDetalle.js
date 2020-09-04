@@ -12,18 +12,17 @@ class JugadorDetalle extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container animated bounceInLeft">
 
                 <div className="card">
                     <div className="row no-gutters">
                         <div className="col-auto">
                             <img src={this.imagen} className="img-fluid" alt="" />
                         </div>
-                        <div className="col">
+                        <div className="col align-self-center">
                             <div className="card-block px-2 center-block  text-center ">
-                                <h4 className="card-title center-block  text-center ">{this.props.detallesJugador.nombreJugador}</h4>
-                                {/* por si se queire meter una descripcion o algo sobre el */}
-                                {/* <p className="card-text">Este jugador fue el amyor anotador de triuples en 2018 por ejemplo</p> */}
+                                <h4 className="card-title center-block  text-center ">{this.props.detallesJugador.nombreJugador}</h4>                                
+                                <p className="card-text center-block  text-center">EJEMPLO Este jugador fue el amyor anotador de tripes en 2018 por EJEMPLO</p>
                             </div>
                         </div>
                     </div>
@@ -48,85 +47,85 @@ class JugadorDetalle extends Component {
                             <h1>{this.props.detallesJugador.ediff}</h1>
                             <h1>{this.props.detallesJugador.fic}</h1> */}
 
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <ul className="list-group">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> equipo</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.equipo}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.equipo}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> true_shooting_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.true_shooting_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.true_shooting_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> effective_fg_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.effective_fg_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.effective_fg_p}</span>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> total_shooting_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.total_shooting_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.total_shooting_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> orb_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.orb_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.orb_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> drb_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.drb_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.drb_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> trb_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.trb_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.trb_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> ast_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.ast_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.ast_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> tov_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.tov_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.tov_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> stl_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.stl_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.stl_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> blk_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.blk_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.blk_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> usg_p</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.usg_p}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.usg_p}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> ppr</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.ppr}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.ppr}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> pps</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.pps}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.pps}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> ortg</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.ortg}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.ortg}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> drtg</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.drtg}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.drtg}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> ediff</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.ediff}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.ediff}</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     <h1> fic</h1>
-                                    <span class="badge badge-primary badge-pill">{this.props.detallesJugador.fic}</span>
+                                    <span className="badge badge-primary badge-pill">{this.props.detallesJugador.fic}</span>
                                 </li>
                                 
 
                             </ul>
 
-                            <a href="/" className="btn btn-primary">Volver</a>
+                            {/* <a href="/" className="btn btn-primary">Volver</a> */}
 
                         </div>
                     </div>

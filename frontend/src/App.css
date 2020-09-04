@@ -8,6 +8,15 @@ body {
   
 }
 
+.pt-6 {
+  padding-top: 3.5rem !important;
+}
+
+.mayorIndex{
+
+  z-index: 1050;
+}
+
 /* .temporadas {
   display: grid;
   grid-gap: 70px;

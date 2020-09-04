@@ -3,18 +3,30 @@ import btnImagen from '../Imagenes/fondo-botones2.jpg'
 
 class Temporada extends Component {
 
-
+constructor(){
+    super()
+    this.state = {
+        bounceOut:''
+    }
+}
 
     clickEnlace = (e) => {
         e.preventDefault();
-        this.props.setTemporadaActual(this.props.datos.temporada);
+        this.setState({ bounceOut: true })
+        setTimeout(function () { //Start the timer
+            this.props.setTemporadaActual(this.props.datos.temporada);
+        }.bind(this), 445)
+
     }
 
-    
-    render() {
+
+    render() {      
+       
         return (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 animated bounceInDown " >
-                <div className="card"    >
+            // <div className={"col-12 col-sm-6 col-md-4 col-lg-4 mb-4 animated " +(this.state.bounceOut ? 'bounceOutLeft' : 'bounceInLeft')}>
+
+            <div className="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 animated bounceInLeft">
+                <div className="card">
                     < a href="/" className="streched-link" onClick={this.clickEnlace}>
                         <div className="card-body">
                             <p className="card-text text-center">{this.props.datos.temporada}</p>
