@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: pass
+      #POSTGRES_DB:
+      POSTGRES_USER: user
+
+  angular:
+    build: ./react/
+    restart: always
+    ports:
+        - 4200:4200
+
+  rolapi:
+    build: ./apirest/
+    restart: always
+    ports:
+      - 8082:8082

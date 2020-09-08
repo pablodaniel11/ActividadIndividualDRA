@@ -1,0 +1,8 @@
+FROM openjdk:11
+
+RUN mkdir /home/ApiBaskestatics/
+WORKDIR /home/ApiBaskestatics/
+COPY rest-0.0.1-SNAPSHOT.jar /home/ApiBaskestatics/rest.jar
+EXPOSE 8082
+
+CMD [ "java", "-jar", "rest.jar"]

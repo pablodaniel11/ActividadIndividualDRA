@@ -1,0 +1,12 @@
+FROM react:latest
+
+#Creamos directorio de la app
+WORKDIR /usr/src/app
+COPY ./frontend /baskestatics/react
+WORKDIR /baskestatics/react/frontend
+
+RUN npm install
+RUN npm build
+
+EXPOSE 3000
+CMD [ "npm", "start" ]

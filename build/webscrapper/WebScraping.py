@@ -17,9 +17,13 @@ datos = [[]]
 indices = []
 
 # Escrapear temporadas desde el
-for seasons in range(2019, 2020):
+for seasons in range(2016, 2019):
 
     temporadas.append(seasons)
+
+    temporada = {
+        "temporada": seasons
+    }
 
     for i in range(1, 2):
         URL = 'https://basketball.realgm.com/nba/stats/' + str(seasons) + '/Advanced_Stats/Qualified/per/All/desc/' \
@@ -85,17 +89,7 @@ for seasons in range(2019, 2020):
                   "ediff": row[19],
                   "fic": row[20]
             }
-            print(jugador)
 
-            print(seasons)
-            #requests.post('http://localhost:8081/api/jugadors',  json=jugador)
-            #requests.post('http://localhost:8081/api/jugadors', json=temporada)
-
-    #data = pd.DataFrame(datos, columns=indices)
-    #data.hist()
-    #plt.show()
-    #corr = data.corr()
-    #sns.heatmap(corr, annot=True, vmin=-1, vmax=1, center=0)
-    #plt.show()
-
-    # PONER VELAS DE VARIABLES (Buscar en web seaborn)
+            requests.post('http://localhost:8081/api/temporadas', json=temporada)
+            requests.post('http://localhost:8081/api/jugadors',  json=jugador)
+          
