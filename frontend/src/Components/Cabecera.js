@@ -28,13 +28,13 @@ class Cabecera extends Component {
                             <span className="navbar-toggler-icon"></span>
 
                         </button>
-                        <a className="col-10 tituloWeb navbar-brand  mr-auto  mt-2 mt-lg-0 d-lg-none"  href="/">Estadisticas Baloncesto</a>
+                        <a className="col-10 tituloWeb navbar-brand  mr-auto  mt-2 mt-lg-0 d-lg-none"  href="/">BASKESTATICS</a>
 
                     </div>
 
 
                     <div className={`${this.state.isNavCollapsed ? 'collapse ' : ''} navbar-collapse`} id="navBarsGroup">
-                        <a className="tituloWeb navbar-brand  mr-auto mt-2 mt-lg-0 d-none d-lg-block" href="/">Estadisticas Baloncesto</a>
+                        <a className="tituloWeb navbar-brand  mr-auto mt-2 mt-lg-0 d-none d-lg-block" href="/">BASKESTATICS</a>
                         <Buscador datosBusqueda={this.props.datosBusqueda} limpiar={this.props.limpiar} limpiado={this.props.limpiado} />
 
                     </div>

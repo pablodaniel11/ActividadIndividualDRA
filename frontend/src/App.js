@@ -125,8 +125,8 @@ class App extends React.Component {
 
         <div className="container imagenFondo">
           <div className="jumbotron">
-            <p className="lead text-center titulo">Estadísticas Baloncesto</p>
-            <p className=" text-center">Hola, esto es Estadísticas Baloncesto, una web donde visualizar las estadísticas de los mejores jugadores de la NBA desde 2017 hasta ahora</p>
+            <p className="lead text-center titulo">Tu web de estadisticas de baloncesto</p>
+            <p className=" text-center">Hola, esto es Baskestatics, una web donde visualizar las estadísticas de los mejores jugadores de la NBA desde 2016 hasta ahora</p>
           </div>
 
           <div className="col-12 pt-5 sticky-top">

@@ -45,7 +45,7 @@ class JugadorDetalle extends Component {
                         <div className="col align-self-center">
                             <div className="card-block px-2 center-block  text-center ">
                                 <h4 className="card-title center-block  text-left ">{this.props.detallesJugador.nombreJugador}</h4>
-                                <p className="card-text center-block  text-left">EJEMPLO Este jugador fue el amyor anotador de tripes en 2018 por EJEMPLO</p>
+                                <p className="card-text center-block  text-left" > Para ver mas tipo de estadisticas, pinche <a href = "https://basketball.realgm.com/info/glossary"> aqui </a> </p>
                             </div>
                         </div>
                     </div>
