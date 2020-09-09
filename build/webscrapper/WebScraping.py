@@ -1,31 +1,30 @@
 from bs4 import BeautifulSoup
 import requests
 import json
-import pandas as pd
-import numpy as np
-from scipy import stats
-import matplotlib.pyplot as plt
-import seaborn as sns
-import plotly
-import plotly.graph_objects as go
 
 # Definimos los arrays que contendran los valoes de todas las temporadas y de cada jugador en cada fila
 
-temporadas = []
 row = []
-datos = [[]]
-indices = []
+numJugadores = 15
+limite = 0
 
 # Escrapear temporadas desde el
-for seasons in range(2016, 2019):
-
-    temporadas.append(seasons)
+for seasons in range(2016, 2020):
 
     temporada = {
         "temporada": seasons
     }
 
+    requests.post('http://localhost:8082/api/temporadas', json=temporada)
+
     for i in range(1, 2):
+
+        if limite == numJugadores:
+            limite = 0
+            continue
+        else:
+            limite = limite + 1
+
         URL = 'https://basketball.realgm.com/nba/stats/' + str(seasons) + '/Advanced_Stats/Qualified/per/All/desc/' \
               + str(i) + '/Regular_Season'
         response = requests.get(URL)
@@ -34,12 +33,6 @@ for seasons in range(2016, 2019):
         tabla = soup.find('table', {'class': 'tablesaw', 'data-tablesaw-mode': 'swipe'})
         indis = tabla.find_all('th')
         trs = tabla.tbody.find_all('tr')
-
-        # CARGAMOS LOS INDICES
-        for th in indis:
-           indices.append(th.text)
-
-        print(indices)
 
         for tr in trs:
             tds = tr.find_all('td')
@@ -57,14 +50,16 @@ for seasons in range(2016, 2019):
             containerImagen = soup2.find('section', {'class': 'nba-player-header__item'})
 
             # Obtenemos la imagen del jugador o ponemos una indeterminada
-            imagen = 'www.nba.com/.element/img/2.0/sect/statscube/players/large/default_nba_headshot_v2.png'
+            imagen = 'https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png'
             if containerImagen != None:
                 imagen = containerImagen.find_all('img')[0].get('src')
+                if len(imagen) < 85:
+                    imagen = "https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png"
 
             for i in range(3, len(row)):
+                if row[i] == '-':
+                    row[i] = 0
                 row[i] = float(row[i])
-
-            datos.append(row)
 
             jugador = {
                   "imagenjugador": imagen,
@@ -90,6 +85,4 @@ for seasons in range(2016, 2019):
                   "fic": row[20]
             }
 
-            requests.post('http://localhost:8081/api/temporadas', json=temporada)
-            requests.post('http://localhost:8081/api/jugadors',  json=jugador)
-          
+            requests.post('http://localhost:8082/api/jugadors',  json=jugador)
