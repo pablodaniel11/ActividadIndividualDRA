@@ -5,7 +5,7 @@ import json
 # Definimos los arrays que contendran los valoes de todas las temporadas y de cada jugador en cada fila
 
 row = []
-numJugadores = 15
+numJugadores = 16
 limite = 0
 
 # Escrapear temporadas desde el
@@ -14,16 +14,9 @@ for seasons in range(2016, 2020):
     temporada = {
         "temporada": seasons
     }
-
     requests.post('http://localhost:8082/api/temporadas', json=temporada)
 
     for i in range(1, 2):
-
-        if limite == numJugadores:
-            limite = 0
-            continue
-        else:
-            limite = limite + 1
 
         URL = 'https://basketball.realgm.com/nba/stats/' + str(seasons) + '/Advanced_Stats/Qualified/per/All/desc/' \
               + str(i) + '/Regular_Season'
@@ -35,6 +28,13 @@ for seasons in range(2016, 2020):
         trs = tabla.tbody.find_all('tr')
 
         for tr in trs:
+
+            limite = limite + 1
+
+            if limite >= numJugadores:
+                limite = 0
+                break
+
             tds = tr.find_all('td')
             row = [td.text.replace('\n', '') for td in tds]
 
@@ -49,21 +49,19 @@ for seasons in range(2016, 2020):
             soup2 = BeautifulSoup(responseImg.text, 'html.parser')
             containerImagen = soup2.find('section', {'class': 'nba-player-header__item'})
 
-            imagen = ""
+            imagen = "https://www.freepnglogos.com/uploads/nba-logo-png/nba-all-star-game-full-team-lebron-team-giannis-18.png"
 
             # Obtenemos la imagen del jugador o ponemos una indeterminada
             if containerImagen != None:
                 imagen = containerImagen.find_all('img')[0].get('src')
-                if imagen == '//ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/.png':
-                    imagen = "https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png"
+                if imagen == '//ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/.png'\
+                        or len(imagen) < 80:
+                    imagen = "https://www.freepnglogos.com/uploads/nba-logo-png/nba-all-star-game-full-team-lebron-team-giannis-18.png"
 
-            if len(imagen) < 10:
-                imagen = "https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png"
-
-            for i in range(3, len(row)):
-                if row[i] == '-':
-                    row[i] = 0
-                row[i] = float(row[i])
+            for indice in range(3, len(row)):
+                if row[indice] == '-':
+                    row[indice] = 0
+                row[indice] = float(row[indice])
 
             jugador = {
                   "imagenjugador": imagen,
