@@ -49,12 +49,16 @@ for seasons in range(2016, 2020):
             soup2 = BeautifulSoup(responseImg.text, 'html.parser')
             containerImagen = soup2.find('section', {'class': 'nba-player-header__item'})
 
+            imagen = ""
+
             # Obtenemos la imagen del jugador o ponemos una indeterminada
-            imagen = 'https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png'
             if containerImagen != None:
                 imagen = containerImagen.find_all('img')[0].get('src')
-                if len(imagen) < 85:
+                if imagen == '//ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/.png':
                     imagen = "https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png"
+
+            if len(imagen) < 10:
+                imagen = "https://1000marcas.net/wp-content/uploads/2019/12/NBA-Logo.png"
 
             for i in range(3, len(row)):
                 if row[i] == '-':
