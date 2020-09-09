@@ -1,49 +1,50 @@
-import React, { useState } from 'react';
+
+import React, { Component, } from 'react';
 import Buscador from './Buscador'
 // import styles from '../Components/Cabecera.css';
 
-function Cabecera(props) {
+class Cabecera extends Component {
 
-    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+    constructor(props) {
+        super(props);
+        this.state = {
+            isNavCollapsed: true,
+            setIsNavCollapsed: true
+        }
+    }
 
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top mayorIndex">
-            <div className="container">
-                <button className="custom-toggler navbar-toggler" id="nav-btn" type="button"
-                    data-toggle="collapse" data-target="#navBarsGroup" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navBarsGroup">
-                    <a className="navbar-brand  mr-auto mt-2 mt-lg-0" href="/">Estadisticas Baloncesto</a>
 
-                    {/* <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/">Temporadas<span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item ">
-                            <a className="nav-link" href="/">2018</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">Jugador</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link " href="/">Estadisticas</a>
-                        </li>
-                    </ul> */}
+    handleNavCollapse = () => this.setState({ isNavCollapsed: !this.state.isNavCollapsed });
 
-                    <Buscador />
-                    {/* <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form> */}
 
+    render() {
+
+        return (
+            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top mayorIndex col-12" >
+                <div className="container">
+                    <div className="row">
+                        <button className="col-2 custom-toggler navbar-toggler" id="nav-btn" type="button"
+                            data-toggle="collapse" data-target="#navBarsGroup" aria-expanded={!this.state.isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={this.handleNavCollapse}>
+                            <span className="navbar-toggler-icon"></span>
+
+                        </button>
+                        <a className="col-10 tituloWeb navbar-brand  mr-auto  mt-2 mt-lg-0 d-lg-none"  href="/">Estadisticas Baloncesto</a>
+
+                    </div>
+
+
+                    <div className={`${this.state.isNavCollapsed ? 'collapse ' : ''} navbar-collapse`} id="navBarsGroup">
+                        <a className="tituloWeb navbar-brand  mr-auto mt-2 mt-lg-0 d-none d-lg-block" href="/">Estadisticas Baloncesto</a>
+                        <Buscador datosBusqueda={this.props.datosBusqueda} limpiar={this.props.limpiar} limpiado={this.props.limpiado} />
+
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
 
-    )
+        )
+    }
+
 
 }
 

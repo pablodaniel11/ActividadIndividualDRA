@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'NBA Bulls';
+    src: url('NBABulls.eot');
+    src: local('NBA Bulls'), local('NBABulls'),
+        url('./NBABulls.eot?#iefix') format('embedded-opentype'),
+        url('./NBABulls.woff') format('woff'),
+        url('./NBABulls.ttf') format('truetype'),
+        url('./NBABulls.svg#NBABulls') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

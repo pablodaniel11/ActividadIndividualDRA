@@ -12,7 +12,7 @@ class Temporadas extends Component {
 
 
     async componentDidMount() {
-        console.log('Cargando temporadas')
+        // console.log('Cargando temporadas')
         this.obtenerTemporadas();
     }
 
@@ -21,7 +21,7 @@ class Temporadas extends Component {
             const url = "http://localhost:8082/api/temporadas";
             const response = await fetch(url);
             const json = await response.json();
-            console.log('recuperadas ' + json._embedded.temporadas.length + ' temporadas')
+            // console.log('recuperadas ' + json._embedded.temporadas.length + ' temporadas')
             this.setState({ temporadas: json._embedded.temporadas });
         } catch (error) {
             console.error(error);
@@ -29,35 +29,22 @@ class Temporadas extends Component {
 
     }
 
-    mostrarTemporadas = () => {
-        if (this.state.temporadas.length === 0) {
-            console.log('Todavia no hay datos de temporadas')
-            return null;
-        }
-
-        return (
-            <React.Fragment>
-                {
-
-                    this.state.temporadas
-                        .sort((a, b) => parseInt(a.temporada, 10) - parseInt(b.temporada, 10))
-                        .map(tempo => (
-                            <Temporada
-                                datos={tempo}
-                                setTemporadaActual={this.props.setTemporadaActual}
-                                key={tempo.temporada} />
-                        ))
-                }
-            </React.Fragment>
-        );
-    }
-
-
-
     render() {
+
         return (
             <React.Fragment>
-                    {this.mostrarTemporadas()}
+                {this.state.temporadas
+                    .sort((a, b) => parseInt(a.temporada, 10) - parseInt(b.temporada, 10))
+                    .filter(temporadaFiltro => this.props.filtro !== '' ? temporadaFiltro.temporada.toString().toUpperCase().indexOf(this.props.filtro.toUpperCase()) !== -1 : true)
+                    .map(tempo => (
+                        <Temporada
+                            datos={tempo}
+                            setTemporadaActual={this.props.setTemporadaActual}
+                            key={tempo.temporada}
+                            limpiarBusqueda={this.props.limpiarBusqueda}
+                             />
+                    ))}
+                {/* {this.mostrarTemporadas()} */}
             </React.Fragment>);
     }
 }
